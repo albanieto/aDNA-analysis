@@ -56,7 +56,7 @@ You get a .bai file
 ``` bash
 freebayes -f your_ref_genome.fa -r chromosome your.bam > output_name_you_want.vcf
 ```
-For more variant calling options it is recommended to consult the freebayes manual (--help). In the proposed script *aDNAprep.sh* only chromosome 1 is analyzed. It is important that when referencing the chromosome, it has the same annotation as the reference .fa which, in turn, must have the same annotation as the. bam
+For more variant calling options it is recommended to consult the freebayes manual (--help). In the proposed script *aDNAprep.sh* only chromosome 1 is analyzed. It is important that when referencing the chromosome, it is compulsory it has the same annotation as the reference .fa which, in turn, must have the same annotation as the .bam. Check that as above. 
 #### 3. Imputation
 ``` bash
 beagle gp = true impute = true gt = your.vcf ref = chromosome_ref_from_beagle.vcf.gz map = your_chr_geneticmap_from_beagle.map out = name_and_path_you_want
