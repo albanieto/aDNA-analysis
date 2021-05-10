@@ -56,9 +56,9 @@ Se obtiene un fichero .bai
 freebayes -f your_ref_genome.fa -r chromosome/s your.bam > output_name_you_want.vcf
 ````
 Para más opciones de variant calling se recomienda consultar el manual de freebayes (--help). En el script propuesto *aDNAprep.sh* se analiza solo el cromosoma 1. Es importante que al referenciar el cromosoma, este tenga la misma anotación que el .fa de referencia el cual, a su vez, debe tener la misma anotación que el .bam
-#### 3. Imputation
+#### 3. Imputación
 ````bash
 beagle gp=true impute=true gt=your.vcf ref=chromosome_ref_from_beagle.vcf.gz map=your_chr_geneticmap_from_beagle.map out=name_and_path_you_want
 ````
-Para más opciones, consultar el manual de Beagle. Todos los archivos han sido obtenidos a patir de los recursos en la propia página de Beagle. 
+Para más opciones, consultar el manual de Beagle. Todos los archivos han sido obtenidos a patir de los recursos en la propia página de Beagle. También es posible utilizar minimac4, el cual se suele recomendar para aDNA, para muestras en las que el coverage no sea muy bajo. De lo contrario, los criterios restrictivos y de calidad serán imposibles de asumir. Con Beagle es posible imputar sea cual sea el número de variantes que se van a añadir y, en definitiva, pese a que la calidad de la imputación no sea buena en algunas ventanas. 
 
