@@ -53,7 +53,7 @@ samtools index your.bam
 You get a .bai file
 #### 2. Variant Calling
 ``` bash
-freebayes -f your_ref_genome.fa -r chromosome / s your.bam> output_name_you_want.vcf
+freebayes -f your_ref_genome.fa -r chromosome your.bam > output_name_you_want.vcf
 ```
 For more variant calling options it is recommended to consult the freebayes manual (--help). In the proposed script *aDNAprep.sh* only chromosome 1 is analyzed. It is important that when referencing the chromosome, it has the same annotation as the reference .fa which, in turn, must have the same annotation as the. bam
 #### 3. Imputation
