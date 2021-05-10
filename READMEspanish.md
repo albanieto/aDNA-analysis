@@ -31,7 +31,7 @@ head *.bai
 ````
 - A la hora de realizar el variant calling, por mi preferencia y para ilustrar el ejemplo, solamente se ha realizado del cromosoma 1 (línea 11). Elimine el comando -r si quiere el variant calling del genoma completo. 
 - La imputación con Beagle requiere de un mapa genético y de un vcf de referencia de el/los cromosomas que se analizarán. Es posible obtenerlos a partir de los recursos de Beagle: https://faculty.washington.edu/browning/beagle/beagle.html
-- El script ha sido diseñado teniendo en cuenta que está ubicado en el mismo lugar que los archivos .bam y los archivos de recurso mencionados antes. Además, todos los archivos se generan en la misma carpeta. No obstante, es posible cambiar el lugar de origen de los input y de destino de los output añadiendo la ruta linux del directorio en el que se encuentra.
+- El script ha sido diseñado teniendo en cuenta que está ubicado en el mismo lugar que los archivos .bam. Es altamente recomendado que los archivos de recurso estén en una carpeta distinta (en mi caso, están en una carpeta llamada *source* dentro del mismo directorio. Además, todos los archivos se generan en la misma carpeta. No obstante, es posible cambiar el lugar de origen de los input y de destino de los output añadiendo la ruta linux del directorio en el que se encuentra.
 
 Para ejecutar el script, simplemente es necesario o estar en el mismo directorio en el que se guarde script, tener las aplicaciones que utiliza instaladas y escribir: 
 ````bash
