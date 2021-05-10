@@ -39,7 +39,7 @@ To run the script, it is simply necessary to either be in the same directory whe
 ```
 If you want to modify the script, after modifying the script and before executing it, it is necessary to change the notation to Linux. It can be done as follows:
 ``` bash
-awk '{sub ("\ r $", ""); print} 'aDNAprep.sh> aDNAprep2.sh
+awk '{sub ("\ r $", ""); print} 'aDNAprep.sh > DNAprep2.sh
 mv aDNAprep2.sh aDNAprep.sh
 .\ aDNAprep.sh
 ```
