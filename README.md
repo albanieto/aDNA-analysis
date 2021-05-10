@@ -29,7 +29,7 @@ To consider:
 - It is important to bear in mind that the nomenclature of the chromosomes in the .bam must coincide with that of the reference genome (.fa) that is used. To know the nomenclature, you can show the header of the indexed bam. You can download the reference .fa from the Google cloud repository: https://console.cloud.google.com/storage/browser/genomics-public-data/references;tab=objects?prefix=&forceOnObjectsSortingFiltering=false
 
 ``` bash
-head * .bai
+head *.bai
 ```
 - At the time of making the variant calling, by my preference and to illustrate the example, it has only been done on chromosome 1 (line 11). Remove the -r command if you want the variant calling of the entire genome.
 - The imputation with Beagle requires a genetic map and a reference vcf of the chromosomes to be analyzed. They can be obtained from the Beagle resources: https://faculty.washington.edu/browning/beagle/beagle.html
