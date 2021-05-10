@@ -33,12 +33,12 @@ head *.bai
 ```
 - At the time of making the variant calling, by my preference and to illustrate the example, it has only been done on chromosome 1 (line 11). Remove the -r command if you want the variant calling of the entire genome.
 - The imputation with Beagle requires a genetic map and a reference vcf of the chromosomes to be analyzed. They can be obtained from the Beagle resources: https://faculty.washington.edu/browning/beagle/beagle.html
-- The script has been designed keeping in mind that it is located in the same place as the .bam files and the resource files mentioned above. Also, all files are generated in the same folder. However, it is possible to change the source of the inputs and the destination of the outputs by adding the Linux path of the directory where it is located.
+- The script has been designed keeping in mind that it is located in the same place as the .bam files. It is highly recomended that all the resource files are in a different directory (in my cas, a directory called *source* inside the the directory where the script is). Also, all files are generated in the same folder. However, it is possible to change the source of the inputs and the destination of the outputs by adding the Linux path of the directory where it is located.
 To run the script, it is simply necessary to either be in the same directory where the script is saved, have the applications it uses installed and write:
 ``` bash
 .\aDNAprep.sh
 ```
-If you want to modify the script, after modifying the script and before executing it, it is necessary to change the notation to Linux. It can be done as follows:
+- If you want to modify the script, after modifying the script and before executing it, it is necessary to change the notation to Linux. It can be done as follows:
 ``` bash
 awk '{sub ("\ r $", ""); print} 'aDNAprep.sh > DNAprep2.sh
 mv aDNAprep2.sh aDNAprep.sh
