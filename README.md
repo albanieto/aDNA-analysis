@@ -27,21 +27,22 @@ A bash script is provided with a basic pipeline to get, from .bam files, .vcf fi
 To consider:
 - It is recommended to modify the script by defining the variable $ id (line 5) with the user's preferences. In my case, I wanted to keep the first 5 letters of the original file name.
 - It is important to bear in mind that the nomenclature of the chromosomes in the .bam must coincide with that of the reference genome (.fa) that is used. To know the nomenclature, you can show the header of the indexed bam. You can download the reference .fa from the Google cloud repository: https://console.cloud.google.com/storage/browser/genomics-public-data/references;tab=objects?prefix=&forceOnObjectsSortingFiltering=false
-`` bash
+
+``` bash
 head * .bai
-``
+```
 - At the time of making the variant calling, by my preference and to illustrate the example, it has only been done on chromosome 1 (line 11). Remove the -r command if you want the variant calling of the entire genome.
 - The imputation with Beagle requires a genetic map and a reference vcf of the chromosomes to be analyzed. They can be obtained from the Beagle resources: https://faculty.washington.edu/browning/beagle/beagle.html
 - The script has been designed keeping in mind that it is located in the same place as the .bam files and the resource files mentioned above. Also, all files are generated in the same folder. However, it is possible to change the source of the inputs and the destination of the outputs by adding the Linux path of the directory where it is located.
 To run the script, it is simply necessary to either be in the same directory where the script is saved, have the applications it uses installed and write:
 ``` bash
-.\ aDNAprep.sh
+.\aDNAprep.sh
 ```
 If you want to modify the script, after modifying the script and before executing it, it is necessary to change the notation to Linux. It can be done as follows:
 ``` bash
 awk '{sub ("\ r $", ""); print} 'aDNAprep.sh > DNAprep2.sh
 mv aDNAprep2.sh aDNAprep.sh
-.\ aDNAprep.sh
+.\aDNAprep.sh
 ```
 
 
@@ -61,3 +62,8 @@ For more variant calling options it is recommended to consult the freebayes manu
 beagle gp = true impute = true gt = your.vcf ref = chromosome_ref_from_beagle.vcf.gz map = your_chr_geneticmap_from_beagle.map out = name_and_path_you_want
 ```
 For more options, consult the Beagle manual. All the files have been obtained from the resources on the Beagle page itself. It is also possible to use minimac4, which is usually recommended for aDNA, for samples in which the coverage is not very low. Otherwise, the restrictive and quality criteria will be impossible to assume. With Beagle, it is possible to impute whatever the number of variants that are going to be added and, in short, even though the quality of the imputation is not good in some windows.
+#### 4. Unzip the .vcf (optional)
+```bash
+gunzip *.vcf.gz
+```
+You can leave it as a .gz if your further analysis dont need you to unzip it. 
