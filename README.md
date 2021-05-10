@@ -8,11 +8,11 @@ When performing an analysis of any kind with aDNA, it is necessary to take into 
 - The samples will always have very low coverage. This implies that for most procedures we will need to impute our variants with the reference genome
 - The reliability of the results will depend on the quality of the imputation. Obtaining a very large coverage from very few variants has the consequence that a proportion of the added variants will not correspond to those that our sample would hypothetically have.
 - For some analyzes, the damage that the DNA has suffered overtime must be taken into account
-## Sample preparation: * aDNAprep.sh *
+## Sample preparation: *aDNAprep.sh*
 ### Required packages
-- samtools (for indexing: * .bai *)
-- freebayes (for the calling variant: * .vcf *)
-- beagle (for the imputed: * .vcf.gz * <- compressed file. If the provided script is used, it will be designated such that * .imputed.vcf.gz *)
+- samtools (for indexing: *.bai*)
+- freebayes (for the calling variant: *.vcf*)
+- beagle (for the imputed: *.vcf.gz* <- compressed file. If the provided script is used, it will be designated such that * .imputed.vcf.gz *)
 
 All these applications can be installed through the Linux terminal quickly:
 
@@ -22,7 +22,7 @@ apt-get install freebayes
 apt-get install beagle
 ```
 
-### To keep in mind when using the * aDNAprep.sh * script
+### To keep in mind when using the *aDNAprep.sh* script
 A bash script is provided with a basic pipeline to get, from .bam files, .vcf files with the unimputed variants and with the imputed variants.
 To consider:
 - It is recommended to modify the script by defining the variable $ id (line 5) with the user's preferences. In my case, I wanted to keep the first 5 letters of the original file name.
@@ -55,7 +55,7 @@ You get a .bai file
 ``` bash
 freebayes -f your_ref_genome.fa -r chromosome / s your.bam> output_name_you_want.vcf
 ```
-For more variant calling options it is recommended to consult the freebayes manual (--help). In the proposed script * aDNAprep.sh * only chromosome 1 is analyzed. It is important that when referencing the chromosome, it has the same annotation as the reference .fa which, in turn, must have the same annotation as the. bam
+For more variant calling options it is recommended to consult the freebayes manual (--help). In the proposed script *aDNAprep.sh* only chromosome 1 is analyzed. It is important that when referencing the chromosome, it has the same annotation as the reference .fa which, in turn, must have the same annotation as the. bam
 #### 3. Imputation
 ``` bash
 beagle gp = true impute = true gt = your.vcf ref = chromosome_ref_from_beagle.vcf.gz map = your_chr_geneticmap_from_beagle.map out = name_and_path_you_want
