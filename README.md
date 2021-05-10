@@ -12,7 +12,7 @@ When performing an analysis of any kind with aDNA, it is necessary to take into 
 ### Required packages
 - samtools (for indexing: *.bai*)
 - freebayes (for the calling variant: *.vcf*)
-- beagle (for the imputed: *.vcf.gz* <- compressed file. If the provided script is used, it will be designated such that * .imputed.vcf.gz *)
+- beagle (for the imputed: *.vcf.gz* <- compressed file. If the provided script is used, it will be designated like *.imputed.vcf.gz*)
 
 All these applications can be installed through the Linux terminal quickly:
 
