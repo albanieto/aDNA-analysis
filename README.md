@@ -1,5 +1,5 @@
 # aDNA-analysis
-##About this repository
+## About this repository
 Este repositorio ha sido creado para complementar mi trabajo de fin de grado de Genética en la Universidad Autònoma de Barcelona (UAB).
 Aquí se recogen algunos scripts de bash y pipelines para el análisis del aDNA dirigido a personas principiantes o que no están habituados con el uso de estas herramientas bioinformáticas. 
 Ha sido creado teniendo en cuenta los problemas que yo misma he enfrentado, de forma que los comento con el fin de poder ayudar a la comunidad. 
