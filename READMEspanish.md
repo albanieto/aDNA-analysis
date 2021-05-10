@@ -15,11 +15,12 @@ A la hora de realizar un análisis de cualquier tipo con aDNA, es necesario tene
 - beagle (para la imputación: *.vcf.gz* <-- fichero comprimido. Si se utiliza el script proporcionado se designará tal que *.imputed.vcf.gz*)
 
 Todas estas aplicaciones pueden instalarse mediante la terminal de linux de forma rápida: 
-\begin{verbatim}
+```bash
 apt-get install samtools
 apt-get install freebayes
 apt-get install beagle
-\end{verbatim}
+```
+
 ### A tener en cuenta al usar el script *aDNAprep.sh*
 Se proporciona un script de bash con una pipeline básica para conseguir, a partir de ficheros .bam, ficheros .vcf con las variantes sin imputar y con las variantes imputadas.
 A tener en cuenta:
