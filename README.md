@@ -27,9 +27,9 @@ A bash script is provided with a basic pipeline to get, from .bam files, .vcf fi
 To consider:
 - It is recommended to modify the script by defining the variable $ id (line 5) with the user's preferences. In my case, I wanted to keep the first 5 letters of the original file name.
 - It is important to bear in mind that the nomenclature of the chromosomes in the .bam must coincide with that of the reference genome (.fa) that is used. To know the nomenclature, you can show the header of the indexed bam. You can download the reference .fa from the Google cloud repository: https://console.cloud.google.com/storage/browser/genomics-public-data/references;tab=objects?prefix=&forceOnObjectsSortingFiltering=false
-`` `` bash
+`` bash
 head * .bai
-`` ``
+``
 - At the time of making the variant calling, by my preference and to illustrate the example, it has only been done on chromosome 1 (line 11). Remove the -r command if you want the variant calling of the entire genome.
 - The imputation with Beagle requires a genetic map and a reference vcf of the chromosomes to be analyzed. They can be obtained from the Beagle resources: https://faculty.washington.edu/browning/beagle/beagle.html
 - The script has been designed keeping in mind that it is located in the same place as the .bam files and the resource files mentioned above. Also, all files are generated in the same folder. However, it is possible to change the source of the inputs and the destination of the outputs by adding the Linux path of the directory where it is located.
