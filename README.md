@@ -35,13 +35,13 @@ head * .bai
 - The script has been designed keeping in mind that it is located in the same place as the .bam files and the resource files mentioned above. Also, all files are generated in the same folder. However, it is possible to change the source of the inputs and the destination of the outputs by adding the Linux path of the directory where it is located.
 To run the script, it is simply necessary to either be in the same directory where the script is saved, have the applications it uses installed and write:
 ``` bash
-. \ aDNAprep.sh
+.\ aDNAprep.sh
 ```
 If you want to modify the script, after modifying the script and before executing it, it is necessary to change the notation to Linux. It can be done as follows:
 ``` bash
 awk '{sub ("\ r $", ""); print} 'aDNAprep.sh> aDNAprep2.sh
 mv aDNAprep2.sh aDNAprep.sh
-. \ aDNAprep.sh
+.\ aDNAprep.sh
 ```
 
 
