@@ -7,33 +7,9 @@
 import os
 import argparse
 
-
-# In[13]:
-
-
 carpeta=os.listdir() #all files in this directory
 
-
-# In[ ]:
-
-
-
-
-
-# In[48]:
-
-
 act=os.getcwd()
-
-
-# In[14]:
-
-
-
-
-
-# In[76]:
-
 
 parser = argparse.ArgumentParser(description='This is a simple script that takes all the .hom files generated with --homozyg plink function and put it in a .tsv file.\nThis provide you an option to filter if your files have been imputed by the quality of its imputation')
 parser.add_argument("output", help="The .tsv name you want", action="store", default="rohdata", type=str)
@@ -41,18 +17,6 @@ parser.add_argument("sizeFilter", help="The minimum size of the original .vcf (n
 parser.add_argument("path", help="Path where the .vcf files are stored. Must be set if -sf has ben set", action="store", type=str, default=act)
 parser.parse_args()
 args = parser.parse_args()
-
-
-# In[ ]:
-
-
-
-
-
-# %tb
-
-# In[77]:
-
 
 name=args.output
 print(name)
@@ -62,16 +26,10 @@ sf=(args.sizeFilter)*1000
 print(sf)
 
 
-# In[17]:
-
-
 homs=[] #we only take the ones with relevant information for ROH plots we want
 for file in carpeta: 
     if file.endswith(".hom")==True:
         homs.append(file)
-
-
-# In[78]:
 
 
 if args.sizeFilter!=0:
@@ -88,8 +46,6 @@ if args.sizeFilter!=0:
                 print(vcf+".vcf has less than ",sf,"Bytes, so its file .hom is not considered:",file_size,"Bytes")
 print("There are ",len(homs),"individuals that have passed the filter")
 
-
-# In[61]:
 
 
 with open(name+".tsv","w") as f:
@@ -110,17 +66,9 @@ with open(name+".tsv","w") as f:
                 print(*ap, sep="\t",file=f, end="\n") #we write it in our final file
             
                 
-                
-
-
-# In[68]:
 
 
 print("A file called ",name,".tsv has been created",sep="")
-
-
-# In[ ]:
-
 
 
 
