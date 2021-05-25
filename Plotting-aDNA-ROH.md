@@ -1,12 +1,14 @@
 # Different ways to plot ROH analysis
 ## Data and format
 Two files are used to build the main dataframes:
+
 **1. Roh data**: Data obtanied processing the plink \textit{"-homozyg"} output (multiple files) via getROHData.py script available in this repository. It consists of a .csv (it can be .tsv or any other type of delimitation) in which each of the rows corresponds to a detected ROH. The columns are as follows:
 - *ID*: The sample identification or name where the ROH has been found. There will be as many rows with the same ID as ROH has been detected in this sample. (ex: I0426)
 - *KB*: The ROH size. The plink output is given in KB. However, it may be more convenient convert it to Mb via R. All the plots have been created doing the conversion at the moment of plotting (column in KB). (ex: 798.381)
 - *CHR*: Chromosome where the ROH has been detected. (ex: 1)
 - *INITIAL*: Position  (b) where the ROH starts. (ex: 10177)
 - *FINAL*: Position (b) where the ROH ends.  (ex: 808557)
+
 **2. Metadata**: This file includes all the relevant information per individual/sample. Content will depend on  the study objectives. All theese data usually can be found at the suplementary materials from publicly available data papers. Here is an example: 
 - *ID*: The sample identification or name. There will be as only a row per ID. (ex: I0426)
 - *Age*: Average dating for every sample. Only a single number (without BCE or ACE). (ex: 2310)
