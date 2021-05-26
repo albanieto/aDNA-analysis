@@ -1,4 +1,4 @@
-*full-quality plots ara available in github.com/albanieto/aDNA-analysis/main/figuresANDplots*
+*full-quality plots ara available in https://github.com/albanieto/aDNA-analysis/tree/main/figuresANDplotss*
 
 # Data and format pre-processing
 ## Data needed
