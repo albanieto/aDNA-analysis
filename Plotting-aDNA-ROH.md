@@ -161,7 +161,6 @@ for(p in 1:length(lugares)) {
   }
   places<-filter(places, class!="nada")
   
-![SROH vs NROH (2)](https://user-images.githubusercontent.com/72131448/119586602-565fdb00-bdcd-11eb-8f77-29fc52ac7035.png)
 }
 places<-filter(places, class!="nada")
 places$Location<-as.factor(places$Location)
@@ -212,5 +211,48 @@ combiNS
 
 ![SROH vs NROH (2)](https://user-images.githubusercontent.com/72131448/119586615-5b248f00-bdcd-11eb-812d-79eefca602ab.png)
 
+## Genomic Position of ROH per individual
 
+It may be interesting to visualize how the ROHs of an individual are distributed throughout the genome. For this, it is necessary to have the start position and the end position of each of the ROHs.
 
+Through a loop, an array is generated for each individual that contains each of the ROHs in the following format:
+*chrA:00000-99999"
+
+Then the *region* data is ploted above the chr1 (in this project only chr1 is analyzed, but this can be don with more than one chromosome). 
+Filtered and non-filtered individuals are coloured by green and red respectively. 
+
+The package used this time es *karyoploteR*. This allows to represent every kind of data over an existing (any specie) or a simulated genome. 
+https://bernatgel.github.io/karyoploter_tutorial/
+```r
+Olalde<-Olalde[order(Olalde$nSNP),]
+idList<-c(Olalde$ID)
+mapped<-c(Olalde$nSNP)
+idListF<-c(OlaldeFILTER$ID)
+library("viridis")
+colors=viridis(50)
+library("karyoploteR")
+
+kp <- plotKaryotype(genome = "hg19", chromosomes=c("chr1"))
+y0=0
+for(j in 1:length(idList)) {
+  thisID<-idList[j]
+  IDrohs<-alltram[alltram$ID == idList[j],]
+  region<-c()
+  for(r in 1:nrow(IDrohs)){
+    thisROH<-IDrohs[r,]
+    a=paste("chr1:",thisROH$INITIAL,"-",thisROH$FINAL, sep="")
+    region<-c(region,a)
+  }
+  if (idList[j] %in% idListF){c="green4"}
+  else{c="red3"}
+  indvROHs<-toGRanges(region)
+  y1=y0+0.01
+
+  kpText(kp, chr="chr1", y=y0+0.005, x=-10000000,labels=idList[j], cex=0.4, col=c)
+  kpText(kp, chr="chr1", y=y0+0.005, x=-3000000,labels=mapped[j], cex=0.4, col="blue4")
+  kpRect(kp, data=indvROHs, y0=y0, y1=y1,col=colors[j],border=NA,  avoid.overlapping=TRUE)
+  y0=y0+0.02
+  print(y0)
+}
+```
+![Rplot110](https://user-images.githubusercontent.com/72131448/119587480-139f0280-bdcf-11eb-8000-6d5c0b3bd4fd.png)
