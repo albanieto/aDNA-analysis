@@ -1,3 +1,5 @@
+*full-quality plots ara available in github.com/albanieto/aDNA-analysis/main/figuresANDplots*
+
 # Data and format pre-processing
 ## Data needed
 Two files are used to build the main dataframes:
