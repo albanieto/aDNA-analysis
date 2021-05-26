@@ -161,6 +161,7 @@ for(p in 1:length(lugares)) {
   }
   places<-filter(places, class!="nada")
   
+![SROH vs NROH (2)](https://user-images.githubusercontent.com/72131448/119586602-565fdb00-bdcd-11eb-8f77-29fc52ac7035.png)
 }
 places<-filter(places, class!="nada")
 places$Location<-as.factor(places$Location)
@@ -193,5 +194,23 @@ sep<-ggarrange(nonF,yesF,labels=c("A","B"),common.legend=TRUE, legend="bottom")
 sep
 ```
 ![Rplot109](https://user-images.githubusercontent.com/72131448/119585203-7e9a0a80-bdca-11eb-823f-cc44c3f333aa.png)
+
+##SROH vs NROH
+These kind of plots are useful for categorizing populations or individuals.
+Here the filtered data and the non filtered data is plotted togheter in a way that those individuals that passed the quality filter are represented with a filled point. Those that did not pass the filter are represented with an empty point. 
+This a way to filter by more than one variable (Location and nSNP) is presented: via color and shape of dot. 
+````r
+#Non filtered
+vs<-ggplot(data=Olalde, mapping=aes(x=(NROH-`n>16Mb`), y=((SROH-`s>16Mb`)/1000)))
+vs<-vs+geom_point(aes(color=Location), shape=ifelse(Olalde$ID %in% idListF,19,10))
+vs<-vs+labs(x="NROH: ROH count per individual", y="SROH: ROH size (Mb)", title="SROH vs. NROH")+theme_minimal()+geom_text(label=ifelse(Olalde$ID %in% idListF,Olalde$ID,""), size=3,hjust = 0, nudge_x = 2)+scale_color_manual(values=miPaleta, breaks=levels(places$Location))
+vs
+#Adding the filtered values
+combiNS<-vs+geom_point(data=OlaldeFILTER, aes(x=(NROH-`n>16Mb`),y=((SROH-`s>16Mb`)/1000), shape=19, color=Location))+scale_shape_identity()+scale_color_manual(values=miPaleta, breaks=levels(places$Location))+geom_text(label=ifelse(Olalde$ID %in% idListF,Olalde$ID,""), size=3,hjust = 0, nudge_x = 2 )
+combiNS
+````
+
+![SROH vs NROH (2)](https://user-images.githubusercontent.com/72131448/119586615-5b248f00-bdcd-11eb-812d-79eefca602ab.png)
+
 
 
