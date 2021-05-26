@@ -181,7 +181,8 @@ plot<-ggplot(data=places, mapping=aes(x=class, y=meanSROH, order=Location, stat=
 combi<-plot+geom_point(data=placesFilter, aes(x=class,y=meanSROH, group=Location, color=Location, shape=10))+geom_line(linetype="dashed", data=placesFilter)+scale_shape_identity()
 combi
 ```
-[combined10.pdf](https://github.com/albanieto/aDNA-analysis/files/6543083/combined10.pdf)
+![Rplot109](https://user-images.githubusercontent.com/72131448/119585288-b1dc9980-bdca-11eb-888b-becc00501c75.png)
+
 
 It can be represented with separated plots too.
 ```r
