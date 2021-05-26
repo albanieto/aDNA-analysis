@@ -97,7 +97,7 @@ for(j in 1:length(idList)) {
 Olalde$LogLatitude<-log10(Olalde$Latitude) #Latitude is too different to plot it
 
 ```
-# Ploting time!
+# Plotting time!
 Most plots are build via ggplot2.
 ```r
 library(ggplot2)
