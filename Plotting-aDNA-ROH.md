@@ -191,6 +191,6 @@ yesF<-ggplot(data=placesFilter, mapping=aes(x=class, y=meanSROH, order=Location,
 sep<-ggarrange(nonF,yesF,labels=c("A","B"),common.legend=TRUE, legend="bottom")
 sep
 ```
-[separatedSROH.pdf](https://github.com/albanieto/aDNA-analysis/files/6543097/separatedSROH.pdf)
+![Rplot109](https://user-images.githubusercontent.com/72131448/119585203-7e9a0a80-bdca-11eb-823f-cc44c3f333aa.png)
 
 
