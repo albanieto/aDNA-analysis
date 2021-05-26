@@ -181,7 +181,7 @@ plot<-ggplot(data=places, mapping=aes(x=class, y=meanSROH, order=Location, stat=
 combi<-plot+geom_point(data=placesFilter, aes(x=class,y=meanSROH, group=Location, color=Location, shape=10))+geom_line(linetype="dashed", data=placesFilter)+scale_shape_identity()
 combi
 ```
-![Rplot109](https://user-images.githubusercontent.com/72131448/119585288-b1dc9980-bdca-11eb-888b-becc00501c75.png)
+![combined10](https://user-images.githubusercontent.com/72131448/119585366-d769a300-bdca-11eb-8f30-55cf340ffdba.png)
 
 
 It can be represented with separated plots too.
